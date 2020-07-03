@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './App.css';
 import FeatureForm from "./FeatureForm";
 import Cart from "./Cart";
-import SummaryItem from "./SummaryItem";
 
 const USCurrencyFormat = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -40,21 +39,8 @@ class App extends Component {
     });
   };
 
+
   render() {
-    const summary = Object.keys(this.state.selected).map((feature, idx) => {
-      const featureHash = feature + '-' + idx;
-      const selectedOption = this.state.selected[feature];
-
-      return (
-        <SummaryItem
-          key={featureHash}
-          feature={feature}
-          selectedOptionName={selectedOption.name}
-          selectedOptionCost={USCurrencyFormat.format(selectedOption.cost)}
-        />
-      );
-    });
-
     const total = Object.keys(this.state.selected).reduce(
       (acc, curr) => acc + this.state.selected[curr].cost,
       0
@@ -72,7 +58,7 @@ class App extends Component {
             updateFeature={this.updateFeature}
             selectedFeatures={this.state.selected}
           />
-          <Cart summary={summary} total={USCurrencyFormat.format(total)} />
+          <Cart selected={this.state.selected} total={USCurrencyFormat.format(total)} />
         </main>
       </div>
     );

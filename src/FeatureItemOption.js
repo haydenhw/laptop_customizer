@@ -4,7 +4,7 @@ import slugify from 'slugify';
 
 function FeatureItemOption(props) {
   return (
-    <div key={props.itemHash} className="feature__item">
+    <div key={slugify(props.feature) + 'abc'} className="feature__item">
       <input
         type="radio"
         id={props.itemHash}

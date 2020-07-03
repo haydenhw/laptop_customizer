@@ -1,5 +1,5 @@
 import React from 'react';
-import slugify from "./FeatureForm";
+import slugify from 'slugify';
 import FeatureItemOption from "./FeatureItemOption";
 
 const USCurrencyFormat = new Intl.NumberFormat('en-US', {
@@ -8,7 +8,6 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
 });
 
 function FeatureOptionList(props) {
-
   return props.features[props.feature].map(item => {
     const itemHash = slugify(JSON.stringify(item));
     return (
