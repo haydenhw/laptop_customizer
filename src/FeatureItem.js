@@ -1,5 +1,6 @@
 import React from 'react';
 import slugify from 'slugify';
+import FeatureOptionList from "./FeatureOptionList";
 
 
 function FeatureItem(props) {
@@ -8,7 +9,12 @@ function FeatureItem(props) {
       <legend className="feature__name">
         <h3>{props.name}</h3>
       </legend>
-      {props.children}
+      <FeatureOptionList
+        features={props.features}
+        feature={props.feature}
+        selectedFeatures={props.selectedFeatures}
+        updateFeature={props.updateFeature}
+      />
     </fieldset>
   );
 }

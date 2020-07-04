@@ -14,6 +14,7 @@ function FeatureOptionList(props) {
       <FeatureItemOption
         feature={props.feature}
         key={itemHash}
+        itemHash={itemHash}
         onChange={(e) => props.updateFeature(props.feature, item)}
         checked={item.name === props.selectedFeatures[props.feature].name}
         itemName={item.name}
